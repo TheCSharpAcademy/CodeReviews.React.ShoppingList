@@ -1,0 +1,6 @@
+@ShoppingListReact_HostAddress = http://localhost:5147
+
+GET {{ShoppingListReact_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
