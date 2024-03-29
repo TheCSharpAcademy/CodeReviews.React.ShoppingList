@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34525.116
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShoppingList.StanimalTheMan.Server", "ShoppingList.StanimalTheMan.Server\ShoppingList.StanimalTheMan.Server.csproj", "{1C7C4E2B-DD13-4B03-92CB-F9A6E17351A0}"
+EndProject
+Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "shoppinglist.stanimaltheman.client", "shoppinglist.stanimaltheman.client\shoppinglist.stanimaltheman.client.esproj", "{7F203C35-9A6A-4503-BC0B-623C4772719C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1C7C4E2B-DD13-4B03-92CB-F9A6E17351A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C7C4E2B-DD13-4B03-92CB-F9A6E17351A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C7C4E2B-DD13-4B03-92CB-F9A6E17351A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1C7C4E2B-DD13-4B03-92CB-F9A6E17351A0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7F203C35-9A6A-4503-BC0B-623C4772719C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F203C35-9A6A-4503-BC0B-623C4772719C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F203C35-9A6A-4503-BC0B-623C4772719C}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{7F203C35-9A6A-4503-BC0B-623C4772719C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F203C35-9A6A-4503-BC0B-623C4772719C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7F203C35-9A6A-4503-BC0B-623C4772719C}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9432FA69-EC23-467F-AC50-0B3CCA1F4B65}
+	EndGlobalSection
+EndGlobal
