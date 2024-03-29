@@ -1,55 +1,58 @@
 import { useEffect, useState } from 'react';
 import './App.css';
 
-interface Forecast {
-    date: string;
-    temperatureC: number;
-    temperatureF: number;
-    summary: string;
+interface ShoppingListItem {
+    id: number;
+    name: string;
+    isPickedUp: boolean;
 }
 
+const data = {
+    name: 'Ramen',
+    isPickedUp: false
+};
+
+// Define the fetch options for the POST request
+const options = {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data)
+};
+
 function App() {
-    const [forecasts, setForecasts] = useState<Forecast[]>();
+    const [shoppingListItems, setShoppingListItems] = useState<ShoppingListItem[]>();
 
     useEffect(() => {
-        populateWeatherData();
+        populateShoppingList();
     }, []);
 
-    const contents = forecasts === undefined
+    const handleAddItem = (e) => {
+        fetch('https://localhost:7050/api/shoppinglistitem', options).then(res => res.json()).then(data => console.log(data));
+    };
+
+    const contents = shoppingListItems === undefined
         ? <p><em>Loading... Please refresh once the ASP.NET backend has started. See <a href="https://aka.ms/jspsintegrationreact">https://aka.ms/jspsintegrationreact</a> for more details.</em></p>
-        : <table className="table table-striped" aria-labelledby="tabelLabel">
-            <thead>
-                <tr>
-                    <th>Date</th>
-                    <th>Temp. (C)</th>
-                    <th>Temp. (F)</th>
-                    <th>Summary</th>
-                </tr>
-            </thead>
-            <tbody>
-                {forecasts.map(forecast =>
-                    <tr key={forecast.date}>
-                        <td>{forecast.date}</td>
-                        <td>{forecast.temperatureC}</td>
-                        <td>{forecast.temperatureF}</td>
-                        <td>{forecast.summary}</td>
-                    </tr>
-                )}
-            </tbody>
-        </table>;
+        : <ul>
+            {shoppingListItems.map(s => {
+                return <li>{s.name} {s.isPickedUp}</li>
+            }) }
+        </ul>;
 
     return (
         <div>
             <h1 id="tabelLabel">Weather forecast</h1>
             <p>This component demonstrates fetching data from the server.</p>
             {contents}
+            <button onClick={handleAddItem}>Add Item</button>
         </div>
     );
 
-    async function populateWeatherData() {
-        const response = await fetch('weatherforecast');
+    async function populateShoppingList() {
+        const response = await fetch('https://localhost:7050/api/shoppinglistitem');
         const data = await response.json();
-        setForecasts(data);
+        setShoppingListItems(data);
     }
 }
 
