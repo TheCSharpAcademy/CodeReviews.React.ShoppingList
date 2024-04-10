@@ -1,0 +1,6 @@
+@ShoppingList.StanimalTheMan.Server_HostAddress = http://localhost:5252
+
+GET {{ShoppingList.StanimalTheMan.Server_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
