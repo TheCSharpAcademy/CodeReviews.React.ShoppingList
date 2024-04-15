@@ -8,7 +8,9 @@ public class AutoMappings : Profile
 {
     public AutoMappings()
     {
-        CreateMap<ShoppingListItemDto, ShoppingListItem>()
+        CreateMap<ShoppingItemResponse, ShoppingListItem>()
+            .ReverseMap();
+        CreateMap<CreateShoppingItem, ShoppingListItem>()
             .ReverseMap();
     }
 }

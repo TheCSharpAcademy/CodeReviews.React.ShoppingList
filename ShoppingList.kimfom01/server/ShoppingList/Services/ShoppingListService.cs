@@ -20,7 +20,7 @@ public class ShoppingListService : IShoppingListService
         _mapper = mapper;
     }
 
-    public async Task<List<ShoppingListItemDto>> GetItems()
+    public async Task<List<ShoppingItemResponse>> GetItems()
     {
         var items = await _repository.GetItems();
 
@@ -29,10 +29,10 @@ public class ShoppingListService : IShoppingListService
             throw new NotFoundException("there are no items in the database");
         }
 
-        return _mapper.Map<List<ShoppingListItemDto>>(items);
+        return _mapper.Map<List<ShoppingItemResponse>>(items);
     }
 
-    public async Task<ShoppingListItemDto> GetItem(Guid id)
+    public async Task<ShoppingItemResponse> GetItem(Guid id)
     {
         var item = await _repository.GetItem(id);
 
@@ -41,17 +41,17 @@ public class ShoppingListService : IShoppingListService
             throw new NotFoundException($"item with id {id} not found");
         }
 
-        return _mapper.Map<ShoppingListItemDto>(item);
+        return _mapper.Map<ShoppingItemResponse>(item);
     }
 
-    public async Task<ShoppingListItemDto> AddItem(ShoppingListItemDto itemDto)
+    public async Task<ShoppingItemResponse> AddItem(CreateShoppingItem request)
     {
-        var item = _mapper.Map<ShoppingListItem>(itemDto);
+        var item = _mapper.Map<ShoppingListItem>(request);
 
         var created = await _repository.AddItem(item);
         await _repository.SaveChanges();
 
-        return _mapper.Map<ShoppingListItemDto>(created);
+        return _mapper.Map<ShoppingItemResponse>(created);
     }
 
     public async Task DeleteItem(Guid id)
