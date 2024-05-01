@@ -1,0 +1,14 @@
+.item-card {
+  width: 95%;
+  height: 2rem;
+  background-color: #007ea7;
+  margin-top: 1rem;
+  border-radius: 15px;
+  padding: 10px;
+  padding-bottom: 0;
+}
+
+.flex-space {
+  display: flex;
+  justify-content: space-between;
+}
