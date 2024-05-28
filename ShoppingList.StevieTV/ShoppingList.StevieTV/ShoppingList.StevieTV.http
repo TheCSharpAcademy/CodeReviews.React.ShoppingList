@@ -1,0 +1,6 @@
+@ShoppingList.StevieTV_HostAddress = http://localhost:5014
+
+GET {{ShoppingList.StevieTV_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
