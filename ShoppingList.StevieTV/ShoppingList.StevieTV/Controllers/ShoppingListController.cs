@@ -67,6 +67,40 @@ namespace ShoppingList.StevieTV.Controllers
 
             return NoContent();
         }
+        
+        // PATCH: api/ShoppingList/5
+        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        [HttpPatch("{id}")]
+        public async Task<IActionResult> PickUp(int id)
+        {
+            var shoppingListItem = await _context.FindAsync<ShoppingListItem>(id);
+            
+            if (shoppingListItem == null)
+            {
+                return NoContent();
+            }
+
+            shoppingListItem.IsPickedUp = true; 
+            _context.Entry(shoppingListItem).State = EntityState.Modified;
+
+            try
+            {
+                await _context.SaveChangesAsync();
+                return CreatedAtAction("GetShoppingListItems", new { id = shoppingListItem.Id }, shoppingListItem);
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!ShoppingListItemsExists(id))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+        }
 
         // POST: api/ShoppingList
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
