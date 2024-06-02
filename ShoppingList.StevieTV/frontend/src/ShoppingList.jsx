@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
-import './ShoppingList.css'
 import ShoppingListItem from './ShoppingListItem.jsx';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCartPlus } from '@fortawesome/free-solid-svg-icons';
 
 function ShoppingList() {
     const [items, setItems] = useState([]);
@@ -56,7 +57,7 @@ function ShoppingList() {
         fetch(`https://localhost:44343/api/ShoppingList/${id}`, {
             method: 'DELETE',
         })
-            .then(res => res.json());
+            .then(res => res);
 
         setItems(items.filter(item => item.id !== id));
     }
@@ -79,6 +80,22 @@ function ShoppingList() {
         error ?
             "Error" :
             <div className="shopping-list">
+                <div className="shopping-list-item">
+                    <input
+                        value={addItemText}
+                        className="shopping-list-add-item-input"
+                        onChange={e => setAddItemText(e.target.value)}
+                        placeholder="Add Item..."
+                        onKeyDown={event => {
+                            if (event.key === 'Enter') {
+                                addItem(addItemText);
+                            }
+                        }}
+                    />
+                    <button onClick={() => addItem(addItemText)}>
+                        <FontAwesomeIcon icon={faCartPlus}/>
+                    </button>
+                </div>
                 {items.length === 0 &&
                     <h3>Shopping List is Empty</h3>
                 }
@@ -93,14 +110,6 @@ function ShoppingList() {
                     ))
                 }
 
-                <input
-                    value={addItemText}
-                    onChange={e => setAddItemText(e.target.value)}
-                    placeholder="Add Item..."
-                />
-                <button onClick={() => addItem(addItemText)}>
-                    Add
-                </button>
             </div>
     );
 }

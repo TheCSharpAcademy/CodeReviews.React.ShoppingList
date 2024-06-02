@@ -1,4 +1,7 @@
-﻿function ShoppingListItem({ item, deleteItem, toggleIsPickedUp }) {
+﻿import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
+
+function ShoppingListItem({ item, deleteItem, toggleIsPickedUp }) {
     function handleChange() {
         toggleIsPickedUp(item.id);
     }
@@ -14,7 +17,7 @@
             />
             <p className={item.isPickedUp ? "completed" : ""}>{item.itemName}</p>
             <button onClick={() => deleteItem(item.id)}>
-                X
+                <FontAwesomeIcon icon={faTrash} />
             </button>
                         
         </div>
