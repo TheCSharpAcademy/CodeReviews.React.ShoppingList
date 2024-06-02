@@ -48,22 +48,26 @@ function ShoppingList() {
     }
 
     function deleteItem(id) {
-        
+
         if (id === null) {
             return;
         }
-        
+
         fetch(`https://localhost:44343/api/ShoppingList/${id}`, {
             method: 'DELETE',
         })
-        .then(res => res.json());
-        
+            .then(res => res.json());
+
         setItems(items.filter(item => item.id !== id));
     }
 
     function toggleIsPickedUp(id) {
         setItems(items.map(item => {
             if (item.id === id) {
+                fetch(`https://localhost:44343/api/ShoppingList/${id}?isPickedUp=${!item.isPickedUp}`, {
+                    method: 'PATCH'
+                })
+                    .then(res => res.json());
                 return {...item, isPickedUp: !item.isPickedUp};
             } else {
                 return item;
