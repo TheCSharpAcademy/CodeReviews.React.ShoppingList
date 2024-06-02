@@ -3,23 +3,15 @@ import './ShoppingList.css'
 import ShoppingListItem from './ShoppingListItem.jsx';
 
 function ShoppingList() {
-    const [items, setItems] = useState([]
-        //     [
-        //     {
-        //         id: 1,
-        //         itemName: "Bananas",
-        //         isPickedUp: false
-        //     },
-        //     {
-        //         id: 2,
-        //         itemName: "Cucumber",
-        //         isPickedUp: false
-        //     }
-        // ]
-    );
+    const [items, setItems] = useState([]);
     const [error, setError] = useState(null);
+    const [addItemText, setAddItemText] = useState('');
 
     useEffect(() => {
+        fetchShoppingList();
+    }, []);
+
+    function fetchShoppingList() {
         fetch('https://localhost:44343/api/ShoppingList')
             .then(res => {
                 if (res.ok) {
@@ -32,23 +24,40 @@ function ShoppingList() {
                 console.log(error);
                 setError(error);
             })
-    }, []);
-
-
-    const [addItemText, setAddItemText] = useState('');
+    }
 
     function addItem(itemName) {
-        const newItem = {
-            id: items.length + 1,
-            itemName: itemName,
-            isPickedUp: false
-        };
 
-        setItems([...items, newItem]);
+        if (itemName === '') {
+            return;
+        }
+
+        fetch('https://localhost:44343/api/ShoppingList', {
+            method: 'POST',
+            body: JSON.stringify({
+                itemName: itemName,
+                isPickedUp: false,
+            }),
+            headers: {
+                'Content-Type': 'application/json',
+            }
+        })
+            .then(res => res.json())
+            .then(fetchShoppingList)
         setAddItemText('');
     }
 
     function deleteItem(id) {
+        
+        if (id === null) {
+            return;
+        }
+        
+        fetch(`https://localhost:44343/api/ShoppingList/${id}`, {
+            method: 'DELETE',
+        })
+        .then(res => res.json());
+        
         setItems(items.filter(item => item.id !== id));
     }
 
@@ -83,8 +92,11 @@ function ShoppingList() {
                 <input
                     value={addItemText}
                     onChange={e => setAddItemText(e.target.value)}
+                    placeholder="Add Item..."
                 />
-                <button onClick={() => addItem(addItemText)}>Add</button>
+                <button onClick={() => addItem(addItemText)}>
+                    Add
+                </button>
             </div>
     );
 }
