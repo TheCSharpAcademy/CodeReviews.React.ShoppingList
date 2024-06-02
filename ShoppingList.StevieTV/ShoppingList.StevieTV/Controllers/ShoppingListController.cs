@@ -71,7 +71,7 @@ namespace ShoppingList.StevieTV.Controllers
         // PATCH: api/ShoppingList/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPatch("{id}")]
-        public async Task<IActionResult> PickUp(int id)
+        public async Task<IActionResult> TogglePickedUp(int id, bool isPickedUp)
         {
             var shoppingListItem = await _context.FindAsync<ShoppingListItem>(id);
             
@@ -80,7 +80,7 @@ namespace ShoppingList.StevieTV.Controllers
                 return NoContent();
             }
 
-            shoppingListItem.IsPickedUp = true; 
+            shoppingListItem.IsPickedUp = isPickedUp; 
             _context.Entry(shoppingListItem).State = EntityState.Modified;
 
             try
