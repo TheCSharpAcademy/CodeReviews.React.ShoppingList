@@ -1,0 +1,10 @@
+ShoppingList.BBualdo.sln
+.idea/.idea.ShoppingList.BBualdo/.idea/projectSettingsUpdater.xml
+.idea/.idea.ShoppingList.BBualdo/.idea/indexLayout.xml
+.idea/.idea.ShoppingList.BBualdo/.idea/encodings.xml
+.idea/.idea.ShoppingList.BBualdo/.idea/workspace.xml
+.idea/.idea.ShoppingList.BBualdo/.idea/vcs.xml
+**/bin
+**/obj
+**/.vs
+**/Migrations
