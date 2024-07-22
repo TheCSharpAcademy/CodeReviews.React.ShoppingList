@@ -55,8 +55,9 @@ public class ShopItemsController : ControllerBase
     public async Task<ActionResult<ShopItem>> PostShopItem(ShopItem shopItem)
     {
         var toAdd = new ShopItem() { Name = shopItem.Name };
-        _repository.AddItem(toAdd);
-        return CreatedAtAction("GetShopItem", new { id = shopItem.Id }, shopItem);
+        var newId=await _repository.AddItem(toAdd);
+        shopItem.Id = newId;
+        return CreatedAtAction("GetShopItem", new { id = newId }, shopItem);
     }
 
     // DELETE: api/ShopItems/5

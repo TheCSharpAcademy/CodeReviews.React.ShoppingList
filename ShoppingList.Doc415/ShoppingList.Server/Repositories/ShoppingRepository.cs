@@ -60,16 +60,18 @@ public class ShoppingRepository : IShoppingRepository
         }
     }
 
-    public async Task AddItem(ShopItem item)
+    public async Task<int> AddItem(ShopItem item)
     {
         try
         {
             await _context.AddAsync(item);
             await _context.SaveChangesAsync();
+            return item.Id;
         }
         catch (Exception ex)
         {
             Console.WriteLine(ex.Message);
+            return -1;
         }
     }
 }

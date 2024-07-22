@@ -38,7 +38,8 @@ function Home() {
             });
 
             if (response.ok) {
-                loadItems();
+                const createdItem = await response.json();
+                setItems(prev => [...prev, createdItem]);
                 setNewItem("");
             } else {
                 console.error("Failed to add item to the database");
@@ -46,6 +47,8 @@ function Home() {
         } catch (error) {
             console.error("Error adding item:", error);
         }
+        console.log(items);
+
     };
 
     const handleInputChange = (event) => {
@@ -60,7 +63,7 @@ function Home() {
 
             <form onSubmit={handleSubmit}>
                 <input type="text" value={newItem} onChange={handleInputChange} style={{
-                    backgroundColor: '#f9ecec', marginRight:'10px'
+                    backgroundColor: '#f9ecec', marginRight: '10px', borderRadius:'5px'
                 }} /> 
                 <Button type="Submit" variant="outline-warning"  style={{ color: '#533e41', borderColor: '#533e41' }}>+</Button>
             </form>

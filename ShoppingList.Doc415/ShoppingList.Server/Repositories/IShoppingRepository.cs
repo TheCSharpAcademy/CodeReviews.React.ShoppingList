@@ -8,6 +8,6 @@ public interface IShoppingRepository
     Task<ShopItem> GetItemById(int id);
     Task DeleteItem(int id);
     Task UpdateItem(ShopItem item);
-    Task AddItem(ShopItem item);
+    Task<int> AddItem(ShopItem item);
 
 }
