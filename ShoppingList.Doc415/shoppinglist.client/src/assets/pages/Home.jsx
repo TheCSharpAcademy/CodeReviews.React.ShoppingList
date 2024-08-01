@@ -39,7 +39,7 @@ function Home() {
 
             if (response.ok) {
                 const createdItem = await response.json();
-                setItems(prev => [...prev, createdItem]);
+                setItems(items.concat(createdItem));
                 setNewItem("");
             } else {
                 console.error("Failed to add item to the database");
