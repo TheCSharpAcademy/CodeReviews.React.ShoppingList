@@ -1,0 +1,26 @@
+﻿.itemcontainer {
+    border-bottom-style: solid;
+    border-color: #533e41;
+    color: #533e41;
+}
+
+.outercontainer {
+    border-style: solid;
+    border-color: #f9ecec;
+    border-radius: 20px;
+    padding: 10px;
+    color: #533e41;
+    background: rgb(210,208,210);
+    background: linear-gradient(34deg, rgba(210,208,210,1) 0%, rgba(255,242,255,1) 100%);
+    overflow: auto;
+}
+body {
+background: rgb(60,122,137);
+background: radial-gradient(circle, rgba(60,122,137,1) 0%, rgba(232,194,202,1) 100%);
+    color: #533e41;
+}
+.deletebutton {
+    border-color: #533e41;
+    color: #533e41;
+    fill: #533e41;
+}

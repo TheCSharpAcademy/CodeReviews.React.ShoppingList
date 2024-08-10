@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35013.160
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShoppingList.Server", "ShoppingList.Server\ShoppingList.Server.csproj", "{CB21E869-C241-4EB5-A94E-353CF57BA14E}"
+EndProject
+Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "shoppinglist.client", "shoppinglist.client\shoppinglist.client.esproj", "{75018200-418B-4211-8243-702139269DEC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CB21E869-C241-4EB5-A94E-353CF57BA14E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CB21E869-C241-4EB5-A94E-353CF57BA14E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CB21E869-C241-4EB5-A94E-353CF57BA14E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CB21E869-C241-4EB5-A94E-353CF57BA14E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{75018200-418B-4211-8243-702139269DEC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{75018200-418B-4211-8243-702139269DEC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{75018200-418B-4211-8243-702139269DEC}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{75018200-418B-4211-8243-702139269DEC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{75018200-418B-4211-8243-702139269DEC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{75018200-418B-4211-8243-702139269DEC}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9D8602C8-9BD8-4EE6-8F16-846A0EFC9332}
+	EndGlobalSection
+EndGlobal

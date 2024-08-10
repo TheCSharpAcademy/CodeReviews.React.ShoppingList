@@ -1,0 +1,13 @@
+{
+  "dependencies": {
+    "@popperjs/core": "^2.11.8",
+    "bootstrap": "^5.3.3",
+    "jquery": "^3.7.1",
+    "react-bootstrap": "^2.10.4",
+    "react-popper": "^2.3.0",
+    "react-router-dom": "^6.25.1"
+  },
+  "devDependencies": {
+    "@types/jquery": "^3.5.30"
+  }
+}
