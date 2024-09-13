@@ -1,6 +1,6 @@
 # Shopping List
 
-![entity relationship diagram](./_resources/shopping-list-logo.png)
+![logo](./_resources/shopping-list-logo.png)
 
 Welcome to the **Shopping List** App!
 
